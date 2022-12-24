@@ -1,0 +1,54 @@
+syntax="proto3";
+
+package kita-proto;
+
+import "google/protobuf/timestamp.proto";
+
+message BuildID {
+  int64 ID = 1;
+}
+
+message Build {
+  int64 ID = 1;
+  int64 GithubRepoID = 2;
+  string Branch = 3;
+  bool IsSuccessfull = 4;
+  google.protobuf.timestamp CreatedAt = 5;
+  string Stdout = 6;
+}
+
+message BuildList {
+  int64 Size = 1;
+  repeated Build Builds = 2;
+}
+
+message BuildQuery {
+  int64 GithubRepoID = 1;
+  string Branch = 2;
+}
+
+message ArtifactID {
+  int64 ID = 1;
+}
+
+message Artifact {
+  int64 ID = 1;
+  int64 BuildID = 2;
+}
+
+message ArtifactList {
+  int64 Size = 1;
+  repeated Artifact Artifacts = 2;
+}
+
+message ArtifactQuery {
+  int64 GithubRepoID = 1;
+  string Branch = 2;
+}
+
+service CI {
+  rpc GetBuildByID(BuildID) returns (Build) {}
+  rpc GetAllBuilds(BuildQuery) returns (BuildList) {}
+  rpc GetArtifacteByID(ArtifactID) returns (Artifact) {}
+  rpc GetAllArtifacts(ArtifactQuery) returns (ArtifactList) {}
+}
