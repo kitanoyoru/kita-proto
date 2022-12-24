@@ -1,6 +1,8 @@
 syntax="proto3";
 
-package kita-proto;
+package kitaproto;
+
+option go_package = "./";
 
 import "google/protobuf/timestamp.proto";
 
@@ -13,7 +15,7 @@ message Build {
   int64 GithubRepoID = 2;
   string Branch = 3;
   bool IsSuccessfull = 4;
-  google.protobuf.timestamp CreatedAt = 5;
+  google.protobuf.Timestamp CreatedAt = 5;
   string Stdout = 6;
 }
 
