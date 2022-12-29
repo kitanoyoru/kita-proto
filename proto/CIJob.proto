@@ -5,10 +5,10 @@ package kitaproto;
 option go_package = "./";
 
 message CIJob {
-  string repoURL = 1;
-  int64 repoID = 2;
-  string branch = 3;
-  string user = 4;
-  string headSHA = 5;
-  string accessToken = 6;
+  string RepoURL = 1;
+  int64 RepoID = 2;
+  string Branch = 3;
+  string User = 4;
+  string HeadSHA = 5;
+  string AccessToken = 6;
 }

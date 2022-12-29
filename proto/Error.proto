@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package kitaproto;
+
+option go_package = "./";
+
+message Error {
+  string Err = 1;
+}
