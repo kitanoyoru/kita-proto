@@ -5,7 +5,7 @@ package kitaproto;
 option go_package = "./";
 
 message CIJob {
-  string repo = 1;
+  string repoURL = 1;
   int64 repoID = 2;
   string branch = 3;
   string user = 4;
